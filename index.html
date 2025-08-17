@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Retos CTF</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Retos CTF</h1>
+        <p>Herramienta para generar rápidamente cifrados simples para practicar.</p>
+        
+        <div class="input-section">
+            <textarea id="inputText" placeholder="Introduce tu texto aquí..."></textarea>
+            <div class="controls">
+                <button onclick="cipher('rot13')">ROT13</button>
+                <button onclick="cipher('base64')">Base64</button>
+                <button onclick="cipher('base32')">Base32</button>
+                <button onclick="cipher('hex')">Hexadecimal</button>
+                <button onclick="cipher('binary')">Binario</button>
+                <button onclick="cipher('url')">URL Encode</button>
+                <button onclick="cipher('reverse')">Invertir Texto</button>
+                <div class="xor-section">
+                    <button onclick="cipher('xor')">XOR</button>
+                    <input type="text" id="xorKey" placeholder="Clave XOR" />
+                </div>
+            </div>
+        </div>
+
+        <div class="output-section">
+            <h3>Resultado:</h3>
+            <textarea id="outputText" readonly></textarea>
+            <button onclick="copyToClipboard()">Copiar</button>
+        </div>
+
+        <div class="stego-section">
+            <h3>Esteganografía (básico)</h3>
+            <p>Sube una imagen para ver sus datos en formato binario.</p>
+            <input type="file" id="imageInput" accept="image/*">
+            <textarea id="imageBinaryOutput" readonly placeholder="El contenido binario de la imagen aparecerá aquí..."></textarea>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/base32.js/0.1.0/base32.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
